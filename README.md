@@ -82,3 +82,19 @@ Observer update based on event
 **Concurrent**: multile task execute in same time
 
 **Parallel**: multile task execute in different CPU
+
+
+
+
+
+## 2. Observable vs Observer
+
+### Observable
+
+**subscribe()**: subscribe to observer via subscribe method
+
+**onNext()**: pass each item on at time, **data channel**
+
+**onComplete()**: indicate all action complete, **complete signal**
+
+**onError()**: indicate error ocurr, error same important as data, **error signal** 
