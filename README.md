@@ -98,3 +98,42 @@ Observer update based on event
 **onComplete()**: indicate all action complete, **complete signal**
 
 **onError()**: indicate error ocurr, error same important as data, **error signal** 
+
+
+
+### Hot vs Cold
+
+**Cold Observable**: data is replable
+
+**Hot Observable**: only listen current active data
+
+
+
+### Variants
+
+**SingleObservable**: only react one item
+
+**MaybeObservable**: may emit 0 or 1 item
+
+**CompleteObservable**: only react complete action
+
+
+
+### Disposable
+
+dispose obserable
+
+```java
+Observable<Long> src = Observable.interval(1, TimeUnit.SECONDS);
+
+@NonNull
+Disposable d1 = src.subscribe(e -> System.out.println("Observer 1 : "+ e));
+Disposable d2 = src.subscribe(e -> System.out.println("Observer 2 : "+ e));
+Thread.sleep(5000);
+
+disp.addAll(d1, d2);
+disp.dispose();
+```
+
+
+
