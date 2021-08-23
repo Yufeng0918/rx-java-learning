@@ -137,3 +137,85 @@ disp.dispose();
 
 
 
+## 3. Operators
+
+**Suppressing operators**: suppress emission which failed to meet critia, e.g. filter, take, skip, distinct 
+
+**Transforming operators**: return obsrable may  not be same, e.g map, delay, cast, scan
+
+**Reduce operators**: take serial of emission and reduce them into single emission, e.g. count, reduce, contains, all, any and collection operators
+
+**Error-recovery operators**: handle error and to recover from them, e.g. onErrorReturnItem, onErrorReturn
+
+**Action operators**: debuging operators chain, e.g. doOnNext
+
+
+
+## 4. Combine Observable
+
+Merge: does not maintain the sequence
+
+Concat: maintain the sequence
+
+
+
+flatMap: get event from observable and merge into stream of event
+
+concatMap: get event from obserable and concat into stream of event
+
+
+
+amb:distinct
+
+
+
+zip: combine obserable via zipper, 1 to 1 combine
+
+combineLastest: combine obserable via lastest element
+
+
+
+
+
+## 5. Replay vs Cache & Subject
+
+Replay: replay event for observer
+
+Cache: almost identical to replay
+
+
+
+Subject: combine observable and observalbe **must be concurrent**
+
+```java
+Subject<Object> subject = PublishSubject.create();
+		subject.subscribe(e -> System.out.println(e));
+		src1.subscribe(subject);
+		src2.subscribe(subject);
+```
+
+Subject can emit event. Thread safe only after toSerialized
+
+```java
+@NonNull
+PublishSubject<String> subject = PublishSubject.create();
+
+//Thread safe
+@NonNull
+Subject<String> serialized = subject.toSerialized();
+serialized.onNext("Hello");
+serialized.onNext("BasicsStrong");
+serialized.onComplete();
+```
+
+
+
+**PublishSubject**: emit source obserable item to observer
+
+**ReplaySubject**: replay all event
+
+**BehaviorSubject**: emit most recent item
+
+**AsyncSubject**: emits last value of source observable
+
+**UnicastSubject**: buffers all emission and only one observer
