@@ -89,7 +89,7 @@ Observer update based on event
 
 ## 2. Observable vs Observer
 
-### Observable
+### 2.1 Observable
 
 **subscribe()**: subscribe to observer via subscribe method
 
@@ -101,7 +101,7 @@ Observer update based on event
 
 
 
-### Hot vs Cold
+### 2.2 Hot vs Cold
 
 **Cold Observable**: data is replable
 
@@ -109,7 +109,7 @@ Observer update based on event
 
 
 
-### Variants
+### 2.3 Variants
 
 **SingleObservable**: only react one item
 
@@ -119,7 +119,7 @@ Observer update based on event
 
 
 
-### Disposable
+### 2.4 Disposable
 
 dispose obserable
 
@@ -248,4 +248,35 @@ serialized.onComplete();
 
 
 
-**observeOn**: intercept emission at point to intercept. switch scheduler between
+**observeOn**: affect downstream
+
+**subscribeOn**: affect updatestream
+
+
+
+
+
+## 7. Flowable
+
+**Backpressure**:  producer is much faster than consumer
+
+**Flowable**: handle backpressure, control speed from subscription. expect event with large amount
+
+
+
+**BackpressureStrategy**
+
+MISSING
+
+ERROR 
+
+BUFFER
+
+DROP: drop most recent
+
+LASTEST
+
+
+
+
+
