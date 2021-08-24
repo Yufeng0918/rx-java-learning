@@ -12,8 +12,8 @@ public class SubscribeOn {
 				.map(e -> e.toUpperCase())
 				.doOnNext(e -> System.out.println(Thread.currentThread().getName()))
 				.observeOn(Schedulers.newThread())
+				.subscribeOn(Schedulers.newThread())
 				.filter(e -> e.startsWith("P"))
-				.observeOn(Schedulers.io())
 				.subscribe(e -> print(e));
 		
 		

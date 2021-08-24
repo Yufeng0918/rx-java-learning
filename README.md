@@ -151,6 +151,10 @@ disp.dispose();
 
 
 
+
+
+
+
 ## 4. Combine Observable
 
 Merge: does not maintain the sequence
@@ -232,6 +236,10 @@ serialized.onComplete();
 
 **Scheduler.single**: single thread
 
-Scheduler.trampoline: schedule to current thread
+**Scheduler.trampoline**: schedule to current thread
 
-Schdduler.from: from standard java executive service
+**Schdduler.from**: from standard java executive service
+
+
+
+**observeOn**: intercept emission at point to intercept. switch scheduler between
