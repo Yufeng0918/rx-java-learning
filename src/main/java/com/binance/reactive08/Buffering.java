@@ -20,10 +20,10 @@ public class Buffering {
 		
 		
 		@NonNull
-		Observable<Long> interval = Observable.interval(1000, TimeUnit.MILLISECONDS);
+		Observable<Long> interval = Observable.interval(500, TimeUnit.MILLISECONDS);
 
-		Observable.interval(500, TimeUnit.MILLISECONDS)
-		.buffer(interval)
+		Observable.interval(1000, TimeUnit.MILLISECONDS)
+		.window(interval)
 		.subscribe(System.out::println);
 		
 		Thread.sleep(8000);

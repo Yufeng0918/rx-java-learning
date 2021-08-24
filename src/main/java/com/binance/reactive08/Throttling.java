@@ -40,13 +40,11 @@ public class Throttling {
 
 		
 		obs
-		.debounce(700, TimeUnit.MILLISECONDS)
+		.throttleWithTimeout(700, TimeUnit.MILLISECONDS)
 		.subscribe(
 				item -> System.out.println("onNext: " + item),
 				Throwable::printStackTrace,
 				() -> System.out.println("onComplete")
-				);
-
+		);
 	}
-
 }
