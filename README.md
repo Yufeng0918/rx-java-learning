@@ -151,7 +151,7 @@ disp.dispose();
 
 
 
-
+Buffer(count, skip): gather emission in scope, emit in batch, batch count and skip till skip count
 
 
 
