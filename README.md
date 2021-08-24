@@ -219,3 +219,19 @@ serialized.onComplete();
 **AsyncSubject**: emits last value of source observable
 
 **UnicastSubject**: buffers all emission and only one observer
+
+
+
+## 6. Concurrency
+
+**Scheduler.computation**: compution intensive task
+
+**Scheduler.io**: IO intensive task
+
+**Scheduler.newThread**: use new thread
+
+**Scheduler.single**: single thread
+
+Scheduler.trampoline: schedule to current thread
+
+Schdduler.from: from standard java executive service
